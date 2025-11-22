@@ -110,15 +110,13 @@ class WaylandComponentAnimation(MovingCameraScene):
         )
         component.move_to(screen.get_left() + pos + UP * 0)
 
-        self.play(FadeIn(component))
-
         # 3. 放大镜头聚焦到组件
-
         # 缩放和移动摄像机
         self.play(
             self.camera.frame.animate.scale(0.6).move_to(
                 screen.get_left() + RIGHT * 1.0
-            )
+            ),
+            FadeIn(component),
         )
 
         font_size = 14
